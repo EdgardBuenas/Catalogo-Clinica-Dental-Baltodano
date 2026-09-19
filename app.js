@@ -16,6 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(productos => {
+
+            productos.forEach(producto => {
+                console.log("Imagen:", producto.imagen);
+                console.log(
+                    "URL final:",
+                    new URL(producto.imagen, document.baseURI).href
+                );
+            });
+
             cargarProductos(productos);
             configurarBuscador();
         })
