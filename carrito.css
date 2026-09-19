@@ -1,0 +1,141 @@
+/* =====================================================
+   TOAST CARRITO
+===================================================== */
+.toast-carrito {
+    position: relative;
+    width: 420px;
+    max-width: calc(100vw - 40px);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.925);
+    color: #555;
+    border-radius: 8px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.toast-barra {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: #01ACEE;
+}
+
+.toast-carrito .toast-body { padding: 10px 16px 10px 18px; }
+.toast-icon { color: #01ACEE; font-size: 17px; }
+.toast-contenido { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.toast-titulo { font-size: 14px; font-weight: 600; color: #01ACEE; }
+.toast-mensaje { font-size: 12px; line-height: 1.4; color: #666; overflow-wrap: break-word; }
+
+/* =====================================================
+   MODAL CARRITO
+===================================================== */
+#modalCarrito .modal-dialog { max-width: 480px; }
+#modalCarrito .modal-content { border-radius: 12px; overflow: hidden; background: #fff; }
+#modalCarrito .modal-header { padding: 16px 18px; border-bottom: 1px solid #f0f0f0; }
+#modalCarrito .modal-title { font-size: 16px; color: #333; }
+#modalCarrito .modal-title .fa-cart-shopping { color: #01ACEE !important; }
+#modalCarrito .btn-close { font-size: 12px; box-shadow: none; }
+#modalCarrito .modal-body { padding: 16px 18px; scrollbar-width: thin; scrollbar-color: #d5d5d5 transparent; }
+
+/* Carrito Vacío */
+#carritoVacio { padding: 35px 15px !important; }
+#carritoVacio i { font-size: 32px !important; color: #01ACEE !important; opacity: 0.55; }
+#carritoVacio p { font-size: 13px; }
+
+/* Productos en Carrito */
+#contenidoCarrito > div { padding-bottom: 12px !important; margin-bottom: 12px !important; border-color: #eeeeee !important; }
+#contenidoCarrito .d-flex { gap: 10px !important; }
+
+.carrito-imagen {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+    border-radius: 7px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+.carrito-imagen:hover { opacity: 0.85; }
+
+/* Controles de cantidad */
+#contenidoCarrito .small { font-size: 13px; color: #333; line-height: 1.3; }
+#contenidoCarrito .text-primary { color: #01ACEE !important; font-size: 12px; }
+
+#contenidoCarrito .btn-light {
+    width: 27px; height: 27px; padding: 0; 
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid #e5e5e5 !important; border-radius: 6px; background: #fff; color: #555; font-size: 10px;
+    transition: all 0.2s ease;
+}
+#contenidoCarrito .btn-light:hover { background: #01ACEE; border-color: #01ACEE !important; color: #fff; }
+
+#contenidoCarrito .mx-1 { min-width: 18px; text-align: center; font-size: 12px; }
+
+#contenidoCarrito .btn-outline-danger {
+    width: 28px; height: 28px; padding: 0; display: inline-flex; align-items: center; justify-content: center;
+    border: 0; color: #999; background: transparent; font-size: 12px; transition: all 0.2s ease;
+}
+#contenidoCarrito .btn-outline-danger:hover { color: #dc3545; background: #fff1f2; }
+
+/* Footer Modal Carrito */
+#modalCarrito .modal-footer { padding: 15px 18px; border-top: 1px solid #f0f0f0; background: #fff; }
+#modalCarrito .modal-footer .fw-semibold { font-size: 13px; color: #555; }
+#totalCarrito { color: #01ACEE !important; font-size: 17px !important; }
+
+#btnEnviarWhatsApp { border: 0; border-radius: 7px; padding: 10px; font-size: 13px; transition: all 0.2s ease; }
+#btnEnviarWhatsApp:hover { transform: translateY(-1px); }
+
+/* =====================================================
+   ZOOM DE IMAGEN (Con la X dentro de la propia imagen)
+===================================================== */
+/* Forzamos al diálogo del modal a centrarse correctamente en cualquier pantalla */
+#modalImagenZoom .modal-dialog {
+    max-width: 95vw !important;
+    margin:  auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#imagenZoomSrc {
+    width: 450px;       /* Ancho fijo que desees para computadora */
+    height: 450px;      /* Alto fijo que desees para computadora */
+    object-fit: cover;  /* Expande las pequeñas y ajusta las grandes */
+    background-color: #ffffff;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Opcional para que en celulares no se salga de la pantalla */
+@media (max-width: 576px) {
+    #imagenZoomSrc {
+        width: 85vw;
+        height: 85vw;
+    }
+}
+
+.imagen-zoom-contenedor {
+    position: relative;
+    display: inline-block;
+    line-height: 0; /* Evita espacios extra debajo de la imagen */
+}
+
+
+/* Botón X posicionado de forma absoluta relativo estrictamente a la imagen */
+.btn-cerrar-imagen {
+    background: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+}

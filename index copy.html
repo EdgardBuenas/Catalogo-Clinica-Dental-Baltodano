@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Club Dental</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #0284c7;
+            --accent-hover: #0369a1;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* ================= SECCIÓN 1: PORTADA EN PANTALLA COMPLETA ================= */
+        .hero-fullscreen {
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-fullscreen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Mantiene la proporción de la imagen del PDF original */
+            background-color: #000;
+        }
+
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(5px);
+            animation: bounce 2s infinite;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
+        /* ================= CONTENEDOR PRINCIPAL DE PRODUCTOS ================= */
+        .catalog-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        /* Sección de Categoría */
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .category-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-title-wrapper h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        /* Grid de Productos Profesional */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.75rem;
+        }
+
+        /* Tarjeta de Producto Profesional */
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+
+        .product-image-box {
+            width: 100%;
+            height: 200px;
+            background: #ffffff;
+            position: relative;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image-box img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .product-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.35rem;
+            line-height: 1.4;
+        }
+
+        .product-description {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            min-height: 1.2rem;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .price-tag {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0d9488;
+        }
+
+        .secondary-price {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+        }
+
+        /* Botón Flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #20ba5a;
+        }
+
+        /* Footer elegante */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= SECCIÓN 1: PORTADA EN PANTALLA COMPLETA ================= -->
+<section class="hero-fullscreen">
+    <!-- Imagen de fondo limpia (sin textos incrustados) -->
+    <div class="hero-overlay"></div>
+    <img src="img/portada1.jpg" alt="Portada Catálogo Club Dental" class="hero-bg-image">
+
+    <!-- Contenido superpuesto con los textos de la imagen -->
+    <div class="hero-content">
+        <!-- Logo superior -->
+        <div class="hero-logo">
+            <svg class="dental-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 3C4.23858 3 2 5.23858 2 8C2 10.3863 3.66442 12.384 5.90096 12.8715C6.27552 14.7397 7.22851 17.5 9.5 19.5C11.5 21.25 13 21 14.5 21C16 21 17.5 21 19 19.5C20.5 18 21 15 21 12.8715C23.2356 12.384 24.8999 10.3863 24.8999 8C24.8999 5.23858 22.6614 3 19.8999 3H7Z" stroke="none" fill="currentColor"/>
+            </svg>
+            <div class="logo-text">
+                <span class="brand-name">Club Dental</span>
+                <span class="brand-slogan">sonrisas que nos unen</span>
+            </div>
+        </div>
+
+        <!-- Títulos centrales -->
+        <div class="hero-main-title">
+            <h1>CATÁLOGO</h1>
+            <div class="badge-sub">Suministros Dentales</div>
+        </div>
+
+        <!-- Redes sociales inferiores -->
+        <div class="hero-social">
+            <a href="https://facebook.com/Clubdentalnica" target="_blank" class="social-link">
+                <i class="fa-brands fa-facebook-f"></i> <span>@Clubdentalnica</span>
+            </a>
+            <a href="https://wa.me/50588076667" target="_blank" class="social-link">
+                <i class="fa-solid fa-phone"></i> <span>8807 6667</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Botón para bajar al catálogo -->
+    <a href="#catalogo" class="hero-scroll-hint">
+        <span>Ver Catálogo de Productos</span>
+        <i class="fa-solid fa-arrow-down"></i>
+    </a>
+</section>
+
+
+    <!-- ================= SECCIÓN 2: PRODUCTOS CATEGORIZADOS (SIN NAVBAR) ================= -->
+    <div id="catalogo" class="catalog-container">
+
+        <!-- CATEGORÍA 1: ODONTOLOGÍA GENERAL -->
+        <section class="category-section">
+            <div class="category-title-wrapper">
+                <div class="category-icon"><i class="fa-solid fa-tooth"></i></div>
+                <h2>1. Odontología General</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/copas_de_hule.jpg" alt="Copas de Hule" onerror="this.src='https://via.placeholder.com/200?text=Copas+de+Hule'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Copas de Hule</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$22.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/pines_intradiculares.jpg" alt="Pines Intradiculares" onerror="this.src='https://via.placeholder.com/200?text=Pines+Intradiculares'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Pines Intradiculares</h3>
+                            <p class="product-description">Tornillo de Resina de poste de fibra</p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$20.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/frasero_pequeno.jpg" alt="Frasero Pequeño" onerror="this.src='https://via.placeholder.com/200?text=Frasero+Pequeno'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Frasero Pequeño</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$11.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/bolsas_de_esterilizar.jpg" alt="Bolsas de Esterilizar" onerror="this.src='https://via.placeholder.com/200?text=Bolsas+Esterilizar'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Bolsas de Esterilizar</h3>
+                            <p class="product-description">Medianas / Pequeñas</p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="secondary-price">Med: $13.00</span>
+                            <span class="price-tag">$20.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/cepillos_profilacticos.jpg" alt="Cepillos Profilácticos" onerror="this.src='https://via.placeholder.com/200?text=Cepillos+Profilacticos'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Cepillos Profilácticos</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$2.50</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/fresas_de_arcansa.jpg" alt="Fresas de Arcansa" onerror="this.src='https://via.placeholder.com/200?text=Fresas+Arcansa'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Fresas de Arcansa</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$32.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/equipo_basico.jpg" alt="Equipo Básico" onerror="this.src='https://via.placeholder.com/200?text=Equipo+Basico'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Equipo Básico</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$11.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/kit_resina_nanohibrida.jpg" alt="Kit de Resina Nanohíbrida" onerror="this.src='https://via.placeholder.com/200?text=Kit+Resina'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Kit de Resina Nanohíbrida</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$100.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/lampara_de_foto.jpg" alt="Lámpara de Foto" onerror="this.src='https://via.placeholder.com/200?text=Lampara+Foto'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Lámpara de Foto</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$80.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/turbina_alta_led.jpg" alt="Turbina Alta LED / 45°" onerror="this.src='https://via.placeholder.com/200?text=Turbina+LED'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Turbina Alta LED / 45° (2 Hole)</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$70.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA 2: ORTODONCIA -->
+        <section class="category-section">
+            <div class="category-title-wrapper">
+                <div class="category-icon"><i class="fa-solid fa-align-center"></i></div>
+                <h2>2. Ortodoncia</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/resorte_cerrado.jpg" alt="Resorte Cerrado" onerror="this.src='https://via.placeholder.com/200?text=Resorte+Cerrado'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Resorte Cerrado Light Force</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$12.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/brackets_azdent.jpg" alt="Brackets Marca Azdent" onerror="this.src='https://via.placeholder.com/200?text=Brackets+Azdent'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Brackets Marca Azdent</h3>
+                            <p class="product-description">Unidad / Caja</p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="secondary-price">Und: $8.00</span>
+                            <span class="price-tag">Caja: $80.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/brackets_ceramicos.jpg" alt="Brackets Cerámicos" onerror="this.src='https://via.placeholder.com/200?text=Brackets+Ceramicos'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Brackets Cerámicos</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$18.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/pinza_corte_distal.jpg" alt="Pinza de Corte Distal" onerror="this.src='https://via.placeholder.com/200?text=Pinza+Corte+Distal'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Pinza de Corte Distal</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$60.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/tornillo_hyrax.jpg" alt="Tornillo Hyrax" onerror="this.src='https://via.placeholder.com/200?text=Tornillo+Hyrax'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Tornillo Hyrax</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$24.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA 3: ENDODONCIA -->
+        <section class="category-section">
+            <div class="category-title-wrapper">
+                <div class="category-icon"><i class="fa-solid fa-syringe"></i></div>
+                <h2>3. Endodoncia</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/arco_de_young.jpg" alt="Arco de Young" onerror="this.src='https://via.placeholder.com/200?text=Arco+Young'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Arco de Young</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$14.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/limas_rotatorias_flexible.jpg" alt="Limas Rotatorias Flexible" onerror="this.src='https://via.placeholder.com/200?text=Limas+Rotatorias'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Limas Rotatorias Flexible</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$22.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/endo_motor_ysmart.jpg" alt="Endo Motor Y-Smart" onerror="this.src='https://via.placeholder.com/200?text=Endo+Motor'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Endo Motor Y-Smart</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$250.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="img/localizador_apical.jpg" alt="Localizador Apical" onerror="this.src='https://via.placeholder.com/200?text=Localizador+Apical'">
+                    </div>
+                    <div class="product-content">
+                        <div>
+                            <h3 class="product-name">Localizador Apical</h3>
+                            <p class="product-description"></p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-tag">$220.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/50588076667" target="_blank" class="whatsapp-float" aria-label="Escribir por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Club Dental. Todos los derechos reservados.</p>
+        <p>Suministros Dentales de Calidad</p>
+    </footer>
+
+</body>
+</html>
