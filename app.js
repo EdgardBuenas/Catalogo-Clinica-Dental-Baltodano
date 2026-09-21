@@ -204,7 +204,7 @@ function actualizarCarrito() {
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) return;
 
-    const numeroWhatsApp = "50588076667"; 
+    const numeroWhatsApp = "50588076667";
     let mensaje = "Hola Club Dental, quiero realizar el siguiente pedido:%0A%0A";
     let total = 0;
 
@@ -213,15 +213,24 @@ function enviarPedidoWhatsApp() {
         const subtotal = producto.precio * producto.cantidad;
         total += subtotal;
 
-        mensaje += `${index + 1}. ${nombre}%0A` +
-                   `   Cantidad: ${producto.cantidad}%0A` +
-                   `   Precio: $ ${producto.precio.toFixed(2)}%0A` +
-                   `   Subtotal: $ ${subtotal.toFixed(2)}%0A%0A`;
+        mensaje +=
+            `${index + 1}. ${nombre}%0A` +
+            `Cantidad: ${producto.cantidad}%0A` +
+            `Precio: $ ${producto.precio.toFixed(2)}%0A` +
+            `Subtotal: $ ${subtotal.toFixed(2)}%0A%0A`;
     });
 
-    mensaje += `Total: $ ${total.toFixed(2)}%0A%0AQuedo pendiente de confirmación. Gracias.`;
-    window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, "_blank");
+    mensaje +=
+        `--------------------%0A` +
+        `Total: $ ${total.toFixed(2)}%0A%0A` +
+        `Quedo pendiente de confirmación. Gracias.`;
+
+    window.open(
+        `https://wa.me/${numeroWhatsApp}?text=${mensaje}`,
+        "_blank"
+    );
 }
+
 
 // =====================================================
 // ZOOM DE IMÁGENES (LIGHTBOX)

@@ -14,19 +14,25 @@
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Frasero_Pequeno",
-        "imagen": "img/General/Frasero_Pequeno.png",
+        "nombre": "Frasero_Pequeño",
+        "imagen": "img/General/Frasero_Pequeño.png",
         "precio": 11.00
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Bolsa_de_Esterilizar",
-        "imagen": "img/General/Bolsa_de_Esterilizar.png",
+        "nombre": "Bolsa_Pequeña_de_Esterilizar",
+        "imagen": "img/General/Bolsa_Pequeña_de_Esterilizar.png",
         "precio": 13.00
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Cepillos_Profilacticos",
+        "nombre": "Bolsa_Mediana_de_Esterilizar",
+        "imagen": "img/General/Bolsa_Mediana_de_Esterilizar.png",
+        "precio": 20.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Cepillos_Profilácticos",
         "imagen": "img/General/Cepillos_Profilacticos.png",
         "precio": 32.00
     },
@@ -44,7 +50,7 @@
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Pareja_de_Cubetas_de_impresion",
+        "nombre": "Pareja_de_Cubetas_de_impresión",
         "imagen": "img/General/Pareja_de_Cubetas_de_impresion.png",
         "precio": 6.00,
         "descripcion": "Costo por par"
@@ -64,16 +70,28 @@
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Fresas_de_Diamante",
-        "imagen": "img/General/Fresas_de_Diamante.png",
-        "precio": 2.00,
-        "descripcion": "Caja: $8.00 Unidad: $2.00"
+        "nombre": "Caja_de_Fresas_de_Diamante",
+        "imagen": "img/General/Caja_de_Fresas_de_Diamante.png",
+        "precio": 8.00
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Acido_Grabador_de_5_ml",
+        "nombre": "Fresas_de_Diamante",
+        "imagen": "img/General/Fresas_de_Diamante.png",
+        "precio": 2.00,
+        "descripcion": "Por Unidad"
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Ácido_Grabador_de_5_ml",
         "imagen": "img/General/Acido_Grabador_de_5_ml.png",
         "precio": 11.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Radiografías",
+        "imagen": "img/General/Radiografias.png",
+        "precio": 60.00
     },
     {
         "categoria": "odontologia_general",
@@ -83,21 +101,9 @@
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Porta_Rollos_de_Algodon",
+        "nombre": "Porta_Rollos_de_Algodón",
         "imagen": "img/General/Porta_Rollos_de_Algodon.png",
         "precio": 29.00
-    },
-    {
-        "categoria": "odontologia_general",
-        "nombre": "Pegamento_para_Protesis",
-        "imagen": "img/General/Pegamento_para_Protesis.png",
-        "precio": 12.00
-    },
-    {
-        "categoria": "odontologia_general",
-        "nombre": "Radiografias",
-        "imagen": "img/General/Radiografias.png",
-        "precio": 60.00
     },
     {
         "categoria": "odontologia_general",
@@ -107,23 +113,21 @@
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Lampara_de_Foto",
-        "imagen": "img/General/Lampara_de_Foto.png",
-        "precio": 80.00
+        "nombre": "Pegamento_para_Protesís",
+        "imagen": "img/General/Pegamento_para_Protesis.png",
+        "precio": 12.00
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Radiovisografo",
-        "imagen": "img/General/Radiovisografo.png",
-        "precio": 1130.00,
-        "descripcion": "(Solo por encargo)"
+        "nombre": "Caja_de_Algodón",
+        "imagen": "img/General/Caja_de_Algodon.png",
+        "precio": 55.00
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Algodon",
-        "imagen": "img/General/Algodon.png",
-        "precio": 5.00,
-        "descripcion": "Cajon: $55.00 Bolsa: $9.00"
+        "nombre": "Bolsa_de_Algodón",
+        "imagen": "img/General/Bolsa_de_Algodon.png",
+        "precio": 9.00
     },
     {
         "categoria": "odontologia_general",
@@ -156,18 +160,9 @@
         "imagen": "img/General/Micro_Aplicadores.png",
         "precio": 6.00
     },
-    
     {
         "categoria": "odontologia_general",
-        "nombre": "Micro_Motor",
-        "imagen": "img/General/Micro_Motor.png",
-        "precio": 9.00
-    },
-
-
-    {
-        "categoria": "odontologia_general",
-        "nombre": "Cunas_de_Madera",
+        "nombre": "Cuñas_de_Madera",
         "imagen": "img/General/Cunas_de_Madera.png",
         "precio": 18.00
     },
@@ -191,9 +186,21 @@
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Succiones",
-        "imagen": "img/General/Succiones.png",
-        "precio": 15.00
+        "nombre": "Lampara_de_Foto",
+        "imagen": "img/General/Lampara_de_Foto.png",
+        "precio": 80.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Cajon_de_Succiones",
+        "imagen": "img/General/Cajon_de_Succiones.png",
+        "precio": 75.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Paquete_de_Succiones",
+        "imagen": "img/General/Paquete_de_Succiones.png",
+        "precio": 7.80
     },
     {
         "categoria": "odontologia_general",
@@ -218,12 +225,14 @@
         "nombre": "Kit_de_Pulido_de_Resina",
         "imagen": "img/General/Kit_de_Pulido_de_Resina.png",
         "precio": 15.00
+
     },
     {
         "categoria": "odontologia_general",
         "nombre": "Resina_Fluida",
         "imagen": "img/General/Resina_Fluida.png",
-        "precio": 20.00
+        "precio": 20.00,
+        "descripcion":"Hay de color A2 - A3"
     },
     {
         "categoria": "odontologia_general",
@@ -239,29 +248,50 @@
     },
     {
         "categoria": "odontologia_general",
-        "nombre": "Anestesia_Topica",
+        "nombre": "Gasas",
+        "imagen": "img/General/Gasas.png",
+        "precio": 3.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Anestesia_Tópica",
         "imagen": "img/General/Anestesia_Topica.png",
         "precio": 9.00
     },
     {
         "categoria": "odontologia_general",
+        "nombre": "Caja_de_Papel_Articular",
+        "imagen": "img/General/Caja_de_Papel_Articular.png",
+        "precio": 18.00
+    },
+    {
+        "categoria": "odontologia_general",
         "nombre": "Papel_Articular",
         "imagen": "img/General/Papel_Articular.png",
-        "precio": 8.00,
-        "descripcion": "Caja: $18.00 Unidad: $1.00"
+        "precio": 1.00,
+        "descripcion": "Por Unidad"
     },
-
     {
         "categoria": "odontologia_general",
-        "nombre": "Bisturi_15",
-        "imagen": "img/General/Bisturi_15.png",
-        "precio": 10.00,
-        "descripcion": "Caja: $15.00 Media Caja: $8.00"
+        "nombre": "Caja_de_Bisturi_15",
+        "imagen": "img/General/Caja_de_Bisturi_15.png",
+        "precio": 15.00
     },
-
     {
         "categoria": "odontologia_general",
-        "nombre": "Contra_Angulo",
+        "nombre": "Media_Caja_Bisturi_15",
+        "imagen": "img/General/Media_Caja_Bisturi_15.png",
+        "precio": 8.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Micro_Motor",
+        "imagen": "img/General/Micro_Motor.png",
+        "precio": 40.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Contra_Ángulo",
         "imagen": "img/General/Contra_Angulo.png",
         "precio": 40.00
     },
@@ -269,49 +299,63 @@
         "categoria": "odontologia_general",
         "nombre": "Turbina_de_Alta_LED",
         "imagen": "img/General/Turbina_de_Alta_LED.png",
-        "precio": 90.00
+        "precio": 70.00
     },
     {
         "categoria": "odontologia_general",
         "nombre": "Turbina_de_45_2_Hole",
         "imagen": "img/General/Turbina_de_45_2_Hole.png",
-        "precio": 95.00
+        "precio": 70.00
     },
     {
         "categoria": "odontologia_general",
         "nombre": "Pieza_Recta_de_Baja",
         "imagen": "img/General/Pieza_Recta_de_Baja.png",
-        "precio": 50.00
+        "precio": 40.00
     },
     {
         "categoria": "odontologia_general",
         "nombre": "Kit_de_Turbina",
         "imagen": "img/General/Kit_de_Turbina.png",
-        "precio": 150.00
+        "precio": 280.00
+    },
+    {
+        "categoria": "odontologia_general",
+        "nombre": "Radiovisografo",
+        "imagen": "img/General/Radiovisografo.png",
+        "precio": 1130.00,
+        "descripcion": "(Solo por encargo)"
     },
     {
         "categoria": "odontologia_general",
         "nombre": "Jeringa_para_Anestesia",
         "imagen": "img/General/Jeringa_para_Anestesia.png",
-        "precio": 14.00
+        "precio": 9.00
     },
     {
         "categoria": "odontologia_general",
         "nombre": "Bandas_de_Matriz_Dental",
         "imagen": "img/General/Bandas_de_Matriz_Dental.png",
-        "precio": 11.00
+        "precio": 19.00
     },
     {
         "categoria": "odontologia_general",
         "nombre": "Kit_de_Bandas_Matrices",
         "imagen": "img/General/Kit_de_Bandas_Matrices.png",
-        "precio": 28.00
+        "precio": 26.00
     },
+
+
+
+
+
+
+
     {
         "categoria": "ortodoncia",
         "nombre": "Resorte_Cerrado_Light_Force",
         "imagen": "img/Ortodoncia/Resorte_Cerrado_Light_Force.png",
-        "precio": 10.00
+        "precio": 12.00
     },
     {
         "categoria": "ortodoncia",
@@ -329,13 +373,13 @@
         "categoria": "ortodoncia",
         "nombre": "Hooks_Cortos",
         "imagen": "img/Ortodoncia/Hooks_Cortos.png",
-        "precio": 8.00
+        "precio": 5.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Hook_Crimpables_Spiral",
         "imagen": "img/Ortodoncia/Hook_Crimpables_Spiral.png",
-        "precio": 9.00
+        "precio": 8.00
     },
     {
         "categoria": "ortodoncia",
@@ -347,25 +391,25 @@
         "categoria": "ortodoncia",
         "nombre": "Resorte_Abierto",
         "imagen": "img/Ortodoncia/Resorte_Abierto.png",
-        "precio": 10.00
+        "precio": 7.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Ligadura_Metalica",
         "imagen": "img/Ortodoncia/Ligadura_Metalica.png",
-        "precio": 6.00
+        "precio": 12.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Empujadores_Linguales",
         "imagen": "img/Ortodoncia/Empujadores_Linguales.png",
-        "precio": 15.00
+        "precio": 6.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Torque_Spring",
         "imagen": "img/Ortodoncia/Torque_Spring.png",
-        "precio": 12.00
+        "precio": 8.00
     },
     {
         "categoria": "ortodoncia",
@@ -377,13 +421,13 @@
         "categoria": "ortodoncia",
         "nombre": "Botones_con_Cadenas",
         "imagen": "img/Ortodoncia/Botones_con_Cadenas.png",
-        "precio": 9.00
+        "precio": 7.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Topes_Metalicos",
         "imagen": "img/Ortodoncia/Topes_Metalicos.png",
-        "precio": 5.00
+        "precio": 7.00
     },
     {
         "categoria": "ortodoncia",
@@ -393,39 +437,46 @@
     },
     {
         "categoria": "ortodoncia",
+        "nombre": "Caja_Brackets_Marca_Azdent",
+        "imagen": "img/Ortodoncia/Brackets_Marca_Azdent.png",
+        "precio": 80.00
+    },
+    {
+        "categoria": "ortodoncia",
         "nombre": "Brackets_Marca_Azdent",
         "imagen": "img/Ortodoncia/Brackets_Marca_Azdent.png",
-        "precio": 8.00
+        "precio": 8.00,
+        "descripcion": "Por Unidad"
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Brackets_Ceramicos",
         "imagen": "img/Ortodoncia/Brackets_Ceramicos.png",
-        "precio": 25.00
+        "precio": 18.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Tubos_Primer_Molar_Roth_0.022",
         "imagen": "img/Ortodoncia/Tubos_Primer_Molar_Roth_0.022.png",
-        "precio": 10.00
+        "precio": 50.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Juego_de_Tubos_Primer_Molar",
         "imagen": "img/Ortodoncia/Juego_de_Tubos_Primer_Molar.png",
-        "precio": 12.00
+        "precio": 50.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Kit_Tubos_Segundo_Molar",
         "imagen": "img/Ortodoncia/Kit_Tubos_Segundo_Molar.png",
-        "precio": 14.00
+        "precio": 55.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Tubos_Segundo_Molar",
         "imagen": "img/Ortodoncia/Tubos_Segundo_Molar.png",
-        "precio": 10.00
+        "precio": 55.00
     },
     {
         "categoria": "ortodoncia",
@@ -437,7 +488,7 @@
         "categoria": "ortodoncia",
         "nombre": "Arco_Acero_Redondo",
         "imagen": "img/Ortodoncia/Arco_Acero_Redondo.png",
-        "precio": 4.50
+        "precio": 3.50
     },
     {
         "categoria": "ortodoncia",
@@ -449,49 +500,49 @@
         "categoria": "ortodoncia",
         "nombre": "Alambre_de_Arco_de_Acero",
         "imagen": "img/Ortodoncia/Alambre_de_Arco_de_Acero.png",
-        "precio": 6.00
+        "precio": 5.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Arco_Trenzado",
         "imagen": "img/Ortodoncia/Arco_Trenzado.png",
-        "precio": 5.50
+        "precio": 5.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Arco_Curva_de_Reversa",
         "imagen": "img/Ortodoncia/Arco_Curva_de_Reversa.png",
-        "precio": 7.00
+        "precio": 2.50
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Pinza_Quita_Brackets",
         "imagen": "img/Ortodoncia/Pinza_Quita_Brackets.png",
-        "precio": 22.00
+        "precio": 35.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Pinza_de_Corte_Distal",
         "imagen": "img/Ortodoncia/Pinza_de_Corte_Distal.png",
-        "precio": 25.00
+        "precio": 60.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Pinza_de_Corte_Recto",
         "imagen": "img/Ortodoncia/Pinza_de_Corte_Recto.png",
-        "precio": 20.00
+        "precio": 60.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Pinza_Mattew",
         "imagen": "img/Ortodoncia/Pinza_Mattew.png",
-        "precio": 18.00
+        "precio": 35.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Pinza_Dos_Picos",
         "imagen": "img/Ortodoncia/Pinza_Dos_Picos.png",
-        "precio": 18.00
+        "precio": 35.00
     },
     {
         "categoria": "ortodoncia",
@@ -501,29 +552,41 @@
     },
     {
         "categoria": "ortodoncia",
+        "nombre": "Caja_de_Cera_de_Ortodoncia",
+        "imagen": "img/Ortodoncia/Caja_de_Cera_de_Ortodoncia.png",
+        "precio": 48.00
+    },
+    {
+        "categoria": "ortodoncia",
         "nombre": "Cera_de_Ortodoncia",
         "imagen": "img/Ortodoncia/Cera_de_Ortodoncia.png",
-        "precio": 3.00,
-        "descripcion": "Caja: $48.00 Unidad: $1.00"
+        "precio": 1.00,
+        "descripcion": "Por Unidad"
+    },
+    {
+        "categoria": "ortodoncia",
+        "nombre": "Caja_de_Elasticos_Intermaxilares",
+        "imagen": "img/Ortodoncia/Caja_de_Elasticos_Intermaxilares.png",
+        "precio": 35.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Elasticos_Intermaxilares",
         "imagen": "img/Ortodoncia/Elasticos_Intermaxilares.png",
-        "precio": 5.00,
-        "descripcion": "Caja: $35.00 Unidad: $1.00"
+        "precio": 1.00,
+        "descripcion": "Por Unidad"
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Porta_Cadena",
         "imagen": "img/Ortodoncia/Porta_Cadena.png",
-        "precio": 10.00
+        "precio": 60.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Porta_Elastomero",
         "imagen": "img/Ortodoncia/Porta_Elastomero.png",
-        "precio": 10.00
+        "precio": 60.00
     },
     {
         "categoria": "ortodoncia",
@@ -541,13 +604,13 @@
         "categoria": "ortodoncia",
         "nombre": "Porta_Alambre",
         "imagen": "img/Ortodoncia/Porta_Alambre.png",
-        "precio": 14.00
+        "precio": 65.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Banda_de_Ortodoncia",
         "imagen": "img/Ortodoncia/Banda_de_Ortodoncia.png",
-        "precio": 6.00
+        "precio": 50.00
     },
     {
         "categoria": "ortodoncia",
@@ -559,24 +622,25 @@
         "categoria": "ortodoncia",
         "nombre": "Soldadura_de_Plata",
         "imagen": "img/Ortodoncia/Soldadura_de_Plata.png",
-        "precio": 15.00
+        "precio": 45.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Lijas_Stripping",
         "imagen": "img/Ortodoncia/Lijas_Stripping.png",
-        "precio": 12.00
+        "precio": 18.00
     },
     {
         "categoria": "ortodoncia",
         "nombre": "Separadores",
         "imagen": "img/Ortodoncia/Separadores.png",
-        "precio": 6.00
+        "precio": 2.00,
+        "descripcion": "Por Unidad"
     },
     {
         "categoria": "ortodoncia",
-        "nombre": "Resina_Azul",
-        "imagen": "img/Ortodoncia/Resina_Azul.png",
+        "nombre": "Resina_Azul_para_Tope_de_Mordida",
+        "imagen": "img/Ortodoncia/Resina_Azul_para_Tope_de_Mordida.png",
         "precio": 20.00
     },
     {
@@ -589,8 +653,17 @@
         "categoria": "ortodoncia",
         "nombre": "Cepillo_de_Ortodoncia",
         "imagen": "img/Ortodoncia/Cepillo_de_Ortodoncia.png",
-        "precio": 4.00
+        "precio": 21.00
     },
+
+
+
+
+
+
+
+
+
     {
         "categoria": "endodoncia",
         "nombre": "Arco_de_Young",
@@ -601,7 +674,7 @@
         "categoria": "endodoncia",
         "nombre": "Kit_Grapas_Para_Aislamiento",
         "imagen": "img/Endodoncia/Kit_Grapas_Para_Aislamiento.png",
-        "precio": 35.00
+        "precio": 30.00
     },
     {
         "categoria": "endodoncia",
@@ -619,7 +692,7 @@
         "categoria": "endodoncia",
         "nombre": "Frasero_Para_Limas_Manuales_Y_Rotatorias",
         "imagen": "img/Endodoncia/Frasero_Para_Limas_Manuales_Y_Rotatorias.png",
-        "precio": 15.00
+        "precio": 22.00
     },
     {
         "categoria": "endodoncia",
@@ -638,13 +711,13 @@
         "categoria": "endodoncia",
         "nombre": "Perforadora_De_Dique",
         "imagen": "img/Endodoncia/Perforadora_De_Dique.png",
-        "precio": 22.00
+        "precio": 20.00
     },
     {
         "categoria": "endodoncia",
         "nombre": "Lima_De_Uso_Manual",
         "imagen": "img/Endodoncia/Lima_De_Uso_Manual.png",
-        "precio": 10.00
+        "precio": 6.50
     },
     {
         "categoria": "endodoncia",
@@ -668,7 +741,7 @@
         "categoria": "endodoncia",
         "nombre": "Fresa_Endo_Z",
         "imagen": "img/Endodoncia/Fresa_Endo_Z.png",
-        "precio": 8.00
+        "precio": 4.00
     },
     {
         "categoria": "endodoncia",
@@ -686,6 +759,6 @@
         "categoria": "endodoncia",
         "nombre": "Lima_Rotatoria_Azdent",
         "imagen": "img/Endodoncia/Lima_Rotatoria_Azdent.png",
-        "precio": 24.00
+        "precio": 15.00
     }
 ]
