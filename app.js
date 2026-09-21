@@ -77,19 +77,32 @@ function configurarBuscador() {
     const buscador = document.getElementById("buscadorProductos");
     if (!buscador) return;
 
+    // Función auxiliar para quitar tildes y pasar a minúsculas
+    const normalizar = (texto) => {
+        return texto ? texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase() : "";
+    };
+
     buscador.addEventListener("input", () => {
-        const busqueda = buscador.value.toLowerCase().trim();
+        const busqueda = normalizar(buscador.value.trim());
+        
         document.querySelectorAll(".producto-item").forEach(producto => {
-            const { nombre, precio, categoria } = producto.dataset;
-            const coincide = nombre.includes(busqueda) || precio.includes(busqueda) || categoria.includes(busqueda);
+            const { nombre = "", precio = "", categoria = "" } = producto.dataset;
+            
+            // Normalizamos también los datos del dataset
+            const coincide = 
+                normalizar(nombre).includes(busqueda) || 
+                normalizar(precio).includes(busqueda) || 
+                normalizar(categoria).includes(busqueda);
+                
             producto.style.display = coincide ? "" : "none";
         });
     });
-            buscador.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        buscador.blur(); // Quita el foco y oculta el teclado
-    }
-});
+
+    buscador.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            buscador.blur(); 
+        }
+    });
 }
 
 
@@ -201,6 +214,8 @@ function actualizarCarrito() {
 // =====================================================
 // ENVÍO DE PEDIDO POR WHATSAPP
 // =====================================================
+
+/*
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) return;
 
@@ -230,7 +245,120 @@ function enviarPedidoWhatsApp() {
         "_blank"
     );
 }
+*/
 
+function obtenerFechaFormateada() {
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const ahora = new Date();
+    const dia = ahora.getDate();
+    const mes = meses[ahora.getMonth()];
+    const anio = ahora.getFullYear();
+    
+    let horas = ahora.getHours();
+    const minutos = ahora.getMinutes().toString().padStart(2, '0');
+    const ampm = horas >= 12 ? 'PM' : 'AM';
+    horas = horas % 12;
+    horas = horas ? horas : 12; // Formato de 12 horas
+
+    return `${dia} de ${mes} del ${anio} a las ${horas}:${minutos} ${ampm}`;
+}
+
+// ENVÍO DE PEDIDO POR WHATSAPP
+
+function enviarPedidoWhatsApp() {
+    if (carrito.length === 0) return;
+
+    const numeroWhatsApp = "50588076667";
+    let mensaje = "Hola Club Dental, quiero realizar el siguiente pedido:%0A%0A";
+    let total = 0;
+
+    carrito.forEach((producto, index) => {
+        const nombre = producto.nombre.replaceAll("_", " ");
+        const subtotal = producto.precio * producto.cantidad;
+        total += subtotal;
+
+        mensaje +=
+            `${index + 1}. ${nombre}%0A` +
+            `Cantidad: ${producto.cantidad}%0A` +
+            `Precio: $ ${producto.precio.toFixed(2)}%0A` +
+            `Subtotal: $ ${subtotal.toFixed(2)}%0A%0A`;
+    });
+
+    mensaje +=
+        `--------------------%0A` +
+        `Total: $ ${total.toFixed(2)}%0A%0A` +
+        `Quedo pendiente de confirmación. Gracias.`;
+
+    // 2. Crear un contenedor temporal oculto para diseñar el "Recibo/Factura" visual
+    const facturaContainer = document.createElement("div");
+    facturaContainer.style.position = "absolute";
+    facturaContainer.style.left = "-9999px";
+    facturaContainer.style.top = "0";
+    facturaContainer.style.width = "400px";
+    facturaContainer.style.padding = "20px";
+    facturaContainer.style.background = "#ffffff";
+    facturaContainer.style.fontFamily = "Arial, sans-serif";
+    facturaContainer.style.color = "#333333";
+    facturaContainer.style.border = "1px solid #ddd";
+    facturaContainer.style.borderRadius = "8px";
+
+    let itemsHtml = carrito.map(p => `
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+            <span>${p.cantidad}x ${p.nombre.replaceAll("_", " ")}</span>
+            <span>$ ${(p.precio * p.cantidad).toFixed(2)}</span>
+        </div>
+    `).join("");
+
+    facturaContainer.innerHTML = `
+        <div style="text-align: center; border-bottom: 2px solid #0d6efd; padding-bottom: 10px; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #0d6efd;">Club Dental</h3>
+            <p style="margin: 5px 0 0; font-size: 12px; color: #666;">Comprobante de Pedido</p>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <p style="margin: 0; font-size: 12px; color: #666;">Fecha: ${obtenerFechaFormateada()}</p>
+        </div>
+        <div style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
+            ${itemsHtml}
+        </div>
+        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 16px; margin-top: 10px;">
+            <span>Total:</span>
+            <span style="color: #0d6efd;">$ ${total.toFixed(2)}</span>
+        </div>
+        <div style="text-align: center; margin-top: 20px; font-size: 10px; color: #aaa;">
+            Gracias por su preferencia
+        </div>
+    `;
+
+    document.body.appendChild(facturaContainer);
+
+    // 3. Convertir el recibo HTML en una imagen descargable usando html2canvas
+    html2canvas(facturaContainer, { scale: 2 }).then(canvas => {
+        // Remover el contenedor temporal del DOM
+        document.body.removeChild(facturaContainer);
+
+        // Convertir canvas a imagen y forzar descarga para que el usuario la adjunte en WhatsApp
+        const link = document.createElement("a");
+        link.download = `Recibo_ClubDental_${Date.now()}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+
+        // 4. Abrir WhatsApp con el texto estructurado
+        window.open(
+            `https://wa.me/${numeroWhatsApp}?text=${mensaje}`,
+            "_blank"
+        );
+    }).catch(error => {
+        console.error("Error al generar la factura visual:", error);
+        // Si falla la imagen, al menos abre WhatsApp con el texto
+        if (document.body.contains(facturaContainer)) {
+            document.body.removeChild(facturaContainer);
+        }
+        window.open(
+            `https://wa.me/${numeroWhatsApp}?text=${mensaje}`,
+            "_blank"
+        );
+    });
+}
 
 // =====================================================
 // ZOOM DE IMÁGENES (LIGHTBOX)
