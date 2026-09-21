@@ -1,7 +1,37 @@
 .catalogo-nav { position: sticky; top: 0; z-index: 1020; width: 100%; padding: 10px 0; }
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #01ACEE; border-radius: 10px; }
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 22px;
+    scrollbar-width: thin;
+    scrollbar-color: #01ACEE #F1F5F4;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F1F5F4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #01ACEE;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0081B4;
+}
+
 #odontologia-general { scroll-margin-top: 74px; } 
 #odontologia-general, #ortodoncia, #endodoncia { scroll-margin-top: 80px; }
 
