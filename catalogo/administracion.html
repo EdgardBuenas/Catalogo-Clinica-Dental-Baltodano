@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administración - Club Dental</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="Logo-1.png">
+    <link rel="stylesheet" href="administracion.css">
+
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-dark navbar-admin">
+
+        <div class="container">
+
+            <span class="navbar-brand">
+                <i class="fa-solid fa-gear me-2"></i>
+                Administración
+            </span>
+
+            <div class="d-flex align-items-center">
+
+                <span id="usuarioActual"
+                      class="text-white usuario">
+                </span>
+
+                <button id="btnCerrarSesion"
+                        class="btn btn-sm btn-light ms-3">
+
+                    <i class="fa-solid fa-right-from-bracket me-1"></i>
+                    Salir
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTENIDO -->
+
+    <main class="container py-4">
+
+        <div class="mb-3">
+
+            <h1 class="titulo">
+                Productos
+            </h1>
+
+            <div class="subtitulo">
+                Administra el nombre, precio y disponibilidad de los productos.
+            </div>
+
+        </div>
+
+
+        <div id="mensaje"
+             class="alert"
+             style="display:none;">
+        </div>
+<div class="mb-3">
+    <input
+        type="search"
+        id="buscadorProductos"
+        class="form-control"
+        placeholder="Buscar por nombre, precio, categoría o estado..."
+        autocomplete="off"
+    >
+</div>
+
+        <!-- TABLA -->
+
+        <div class="card-productos">
+
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th style="width:210px;">
+                                Imagen
+                            </th>
+
+                            <th>
+                                Categoria
+                            </th>
+
+                            <th>
+                                Producto
+                            </th>
+
+                            <th style="width:150px;">
+                                Precio
+                            </th>
+
+                            <th style="width:160px;">
+                                Estado
+                            </th>
+
+                            <th class="text-end"
+                                style="width:100px;">
+                                Acción
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaProductos"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- MODAL EDITAR PRODUCTO -->
+
+    <div class="modal fade"
+         id="modalProducto"
+         tabindex="-1"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title"
+                        id="tituloModal">
+
+                        Editar producto
+
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Cerrar">
+                    </button>
+
+                </div>
+
+
+                <form id="formProducto">
+
+                    <div class="modal-body">
+
+                        <input type="hidden"
+                               id="idProducto">
+
+
+                        <div class="mb-3">
+
+                            <label for="nombre"
+                                   class="form-label">
+
+                                Nombre
+
+                            </label>
+
+                            <input type="text"
+                                   id="nombre"
+                                   class="form-control"
+                                   autocomplete="off"
+                                   required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label for="precio"
+                                   class="form-label">
+
+                                Precio
+
+                            </label>
+
+                            <input type="number"
+                                   id="precio"
+                                   class="form-control"
+                                   min="0"
+                                   step="0.01"
+                                   required>
+
+                        </div>
+
+
+                        <div class="form-check">
+
+                            <input type="checkbox"
+                                   id="activo"
+                                   class="form-check-input">
+
+                            <label class="form-check-label"
+                                   for="activo">
+
+                                Producto disponible
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+
+                        <button type="button"
+                                class="btn btn-light"
+                                data-bs-dismiss="modal">
+
+                            Cancelar
+
+                        </button>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+
+                            <i class="fa-solid fa-check me-1"></i>
+                            Guardar cambios
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+    <script src="administracion.js"></script>
+
+</body>
+
+</html>
